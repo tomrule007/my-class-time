@@ -1,4 +1,6 @@
 const path = require('path');
+
+const sass = require('sass');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -21,6 +23,23 @@ module.exports = {
         },
       },
       {
+        test: /\.s(c|a)ss$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: sass,
+              data: `
+                @import "_variables.scss";
+              `,
+              includePaths: [path.join(__dirname, '../src/client/scss')],
+            },
+          },
+        ],
+      },
+      {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
@@ -31,7 +50,11 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    alias: {
+      '@': path.join(__dirname, '../src/client'),
+      src: path.join(__dirname, '../src'),
+    },
+    extensions: ['.js', '.jsx', '.json'],
   },
   devServer: {
     port: 3000,

@@ -8,6 +8,7 @@ module.exports = {
   parser: 'babel-eslint',
   rules: {
     'linebreak-style': ['error', 'windows'],
+    'import/no-unresolved': 'off', // Turned off due to using Webpack resolve functionality
   },
   overrides: [
     {

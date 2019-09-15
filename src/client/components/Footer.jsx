@@ -1,9 +1,11 @@
 import React from 'react';
-import './Footer.css';
+import './Footer.scss';
 
 const Footer = () => (
-  <div>
-    Footer
+  <div className="footer">
+    <div className="copyright">
+      { `Copyright © ${(new Date()).getFullYear()} - Thomas Herzog & Allister Moon` }
+    </div>
   </div>
 );
 

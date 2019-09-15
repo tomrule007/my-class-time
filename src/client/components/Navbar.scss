@@ -1,0 +1,35 @@
+.navbar {
+  background-color: $navbar-background-color;
+  color: $navbar-text-color;
+
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: static;
+  height: 50px;
+  width: 100%;
+  padding: 0 1rem;
+
+  a {
+    color: $navbar-text-color;
+    text-decoration: none;
+  }
+
+  .branding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 30px;
+    font-weight: bold;
+
+    img {
+      height: 40px;
+      width: 80px;
+
+      margin-right: 5px;
+    }
+  }
+}
